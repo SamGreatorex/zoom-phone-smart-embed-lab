@@ -201,7 +201,8 @@
                         <td>Accountant</td>
                         <td>Tokyo</td>
                         <td>2008/11/28</td>
-                        <td><number onClick="call(+441806284037)">(205) 315-0103</number></td>
+                        TODO: Update the telephone number to call
+                        <td><number onClick="call(+44XXXXXXXXXX)">(XXX) XXX-XXX</number></td>
                       </tr>
                       <tr>
                         <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar2.jpeg" />Angelica Ramos</td>
@@ -310,9 +311,8 @@
         </footer>
       </div>
       <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-      <!-- iframe or JS-->
-      <script src="https://vaapplicationscontent.zoom.us/phoneSdk/static/smart-embed/js/sdk.js"></script>
-      
+
+      <!-- TODO: Add the script for the smart embed here -->
     </div>
 
     <style>
@@ -324,33 +324,8 @@
     </style>
     <script>
       function call(number) {
-        console.log("Number calling: ", number);
-        document.querySelector("iframe#zoom-embeddable-phone-iframe").contentWindow.postMessage(
-          {
-            type: "zp-make-call",
-            data: {
-              number: "+447818567304",
-            },
-          },
-          "https://applications.zoom.us"
-        );
+        //TODO: Add the Function here
       }
-    </script>
-
-    <script>
-      window.addEventListener("message", (e) => {
-        const data = e.data;
-        if (data) {
-          if (data.type == "zp-call-ringing-event") {
-            console.log(data.data);
-            if (data.data.direction == "inbound") {
-              var search = document.getElementById("searchbox");
-              search.value = data.data.caller.phoneNumber;
-              window.open("https://oauth.arps.dev/SmartEmbed/customer.html", "_blank");
-            }
-          }
-        }
-      });
     </script>
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
